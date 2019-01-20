@@ -1,0 +1,55 @@
+#--------------------------#
+# Magento Default Files    #
+#--------------------------#
+
+app/etc/local.xml
+
+!/media/captcha/base
+/media/captcha/base/*
+
+# /media/video/
+/media/cache/
+/media/catalog/
+/media/favicon/
+media/.htaccess
+skin/adminhtml/default/default/favicon.ico
+
+
+!media/downloadable
+media/downloadable/
+!media/downloadable/.htaccess
+
+!media/xmlconnect
+media/xmlconnect/*
+
+!media/xmlconnect/custom
+media/xmlconnect/custom/*
+!media/xmlconnect/custom/ok.gif
+
+!media/xmlconnect/original
+media/xmlconnect/original/*
+!media/xmlconnect/original/ok.gif
+
+!media/xmlconnect/system
+media/xmlconnect/system/*
+!media/xmlconnect/system/ok.gif
+
+var/*
+!var/.htaccess
+
+!var/package
+var/package/*
+!var/package/*.xml
+
+!var/image
+var/image/*
+
+# log files
+maintenance.flag
+error_log
+
+# Intellij config files
+.idea/
+
+# flag file
+/t.html

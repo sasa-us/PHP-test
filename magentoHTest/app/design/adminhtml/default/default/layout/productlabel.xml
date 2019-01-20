@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_productlabel_index>
+        <reference name="content">
+            <block type="productlabel/adminhtml_productlabel" name="productlabel" />
+        </reference>
+    </adminhtml_productlabel_index>
+	<adminhtml_productlabel_edit>
+		<reference name="head">
+			<action method="setCanLoadExtJs"><flag>1</flag></action>
+			<action method="setCanLoadRulesJs"><flag>1</flag></action>
+			<action method="addCss"><name>productlabel/css/styles.css</name></action>
+			<action method="addJs"><script>productlabel/adminhtml/position.js</script></action>
+			<action method="addJs"><script>productlabel/adminhtml/product-selector.js</script></action>
+			<action method="addJs"><script>productlabel/jscolor/jscolor.js</script></action>
+        </reference>   
+	</adminhtml_productlabel_edit>
+</layout>

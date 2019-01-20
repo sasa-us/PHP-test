@@ -1,0 +1,37 @@
+<?php
+/***************************************************************************
+	@extension	: Product Label.
+	@copyright	: Copyright (c) 2015 Capacity Web Solutions.
+	( http://www.capacitywebsolutions.com )
+	@author		: Capacity Web Solutions Pvt. Ltd.
+	@support	: magento@capacitywebsolutions.com	
+***************************************************************************/
+?>
+<?php
+         if(Mage::app()->getRequest()->getControllerName() == 'catalog_product_action_attribute') { $attributeName = "attributes[{$this->getName()}]"; }
+         else { $attributeName = $this->getName(); }
+?>
+<div id="<?php echo $this->getHtmlId(); ?>_container" class="cws_productlabel_position_container">
+    <input type="hidden" id="<?php echo $this->getHtmlId(); ?>_input" name="<?php echo $attributeName; ?>"  value="<?php echo $this->getValue(); ?>">
+    <input id="<?php echo $this->getHtmlId(); ?>" class="input-text" type="text" value=""<?php if ($this->getCanUseDefaultValue() || $this->getCanUseWebsiteValue() || $this->getDisabled()) { echo ' disabled'; } ?> onfocus="focusNextInput($('<?php echo $this->getHtmlId(); ?>'))" >
+    <div id="<?php echo $this->getHtmlId(); ?>_button" class="cws_productlabel_position_button"><?php echo $this->__('Click here to select'); ?></div>
+    <div id="<?php echo $this->getHtmlId(); ?>_selectbox" class="cws_productlabel_selectbox">
+    <?php foreach (array('T', 'M', 'B') as $V): ?>
+        <?php foreach (array('L', 'C', 'R') as $H): ?>
+        <div id="<?php echo $this->getHtmlId(); ?>_<?php echo $V.$H; ?>" class="position_selector"></div>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+    </div>
+</div>
+<script type="text/javascript">
+    cwsPosition.register($('<?php echo $this->getHtmlId(); ?>_container'), $('<?php echo $this->getHtmlId(); ?>_button'), $('<?php echo $this->getHtmlId(); ?>_input'), $('<?php echo $this->getHtmlId(); ?>_selectbox'));
+    <?php foreach ($this->getValues() as $option): ?>
+    cwsPosition.addPosition('<?php echo $option['value']; ?>', '<?php echo $this->__($option['label']); ?>')
+    <?php endforeach; ?>
+    <?php foreach (array('T', 'M', 'B') as $V): ?>
+        <?php foreach (array('L', 'C', 'R') as $H): ?>
+        cwsPosition.registerSelector($('<?php echo $this->getHtmlId(); ?>_selectbox'), $('<?php echo $this->getHtmlId(); ?>_<?php echo $V.$H; ?>'), '<?php echo $V.$H; ?>', $('<?php echo $this->getHtmlId(); ?>_input'), $('<?php echo $this->getHtmlId(); ?>'));
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+    cwsPosition.setInputValue($('<?php echo $this->getHtmlId(); ?>_input'),$('<?php echo $this->getHtmlId(); ?>'), '<?php echo ($this->getValue())?($this->getValue()):'TL'; ?>', $('<?php echo $this->getHtmlId(); ?>_selectbox'));
+</script>

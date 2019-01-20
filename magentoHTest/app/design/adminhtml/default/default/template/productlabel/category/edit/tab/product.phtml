@@ -1,0 +1,55 @@
+<?php
+/***************************************************************************
+	@extension	: Product Label.
+	@copyright	: Copyright (c) 2015 Capacity Web Solutions.
+	( http://www.capacitywebsolutions.com )
+	@author		: Capacity Web Solutions Pvt. Ltd.
+	@support	: magento@capacitywebsolutions.com	
+***************************************************************************/
+?>
+<div class="entry-edit">
+	<div class="entry-edit-head">
+		<h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('productlabel')->__('Product Listing') ?></h4>
+		
+	</div>
+	<fieldset id="product_fieldset">
+	<div class="hor-scroll">
+		<table cellspacing="0" class="form-list">
+            <tbody>
+                <tr>
+					<td class="label"><label for="include_sku">Apply label to</label></td>
+					<td class="value">
+						<select class=" select" title="Apply label to" name="include_sku" id="include_sku">
+							<option value="0">All matching products</option>
+							<option value="1">All matching products except SKUs selected below</option>
+							<option value="2">SKUs selected below only</option>
+						</select>
+					</td>
+				</tr>
+            </tbody>
+        </table>
+       </div>
+	
+		<ul>
+			<li>
+				<span class="product-param">
+					<label for="product_sku"><?php echo Mage::helper('productlabel')->__('Selected Product SKUs') ?></label>
+						<a class="label" href="javascript:void(0)"><?php if($this->getIdsString()) { echo $this->getIdsString(); } else { echo Mage::helper('productlabel')->__('Click Here To Add Products'); } ?></a>
+					<span class="element">
+						<input id="product_sku" class="input-text element-value-changer" type="text" value="<?php echo $this->getIdsString() ?>" name="product_sku">
+						<a class="product-chooser-trigger" href="javascript:void(0)">
+							<img src="<?php echo Mage::getDesign()->getSkinUrl('images/rule_chooser_trigger.gif') ?>" alt="" class="v-middle product-chooser-trigger" title="<?php echo Mage::helper('productlabel')->__('Open Chooser') ?>" />
+						</a>
+					</span>
+				</span>
+				<div class="product-chooser" url="<?php echo Mage::getUrl('adminhtml/promo_widget/chooser/attribute/sku/form/rule_conditions_fieldset', array('_secure' => Mage::app()->getStore()->isAdminUrlSecure())); ?>">
+			</li>
+		</ul>
+	</fieldset>
+</div>
+
+<script type="text/javascript">
+	var rule_conditions_fieldset = new VarienRulesForm('product_fieldset', '<?php echo Mage::getUrl('/admin/promo_catalog/newConditionHtml/form/rule_conditions_fieldset/', array('_secure' => Mage::app()->getStore()->isAdminUrlSecure())) ?>');
+	
+	
+</script>

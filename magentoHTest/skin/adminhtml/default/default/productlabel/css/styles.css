@@ -1,0 +1,67 @@
+.cws_productlabel_position_container {
+    position: relative;
+    float: left;
+    width: 280px;
+}
+.cws_productlabel_position_button {
+    width: 278px;
+    height: 19px;
+    position: absolute;
+    top: 1px;
+    background-image:url("../images/button.png");
+    color: #fff;
+    font-weight: bold;
+    left: 1px;
+    float: left;
+    text-align: center;
+    z-index: 3;
+    cursor: default;
+    display: none;
+}
+.cws_productlabel_selectbox {
+    background-color: #fff;
+    border:1px solid #ccc;
+    display:none;
+    height:73px;
+    left:0;
+    position:absolute;
+    top:0;
+    width:79px;
+    z-index:4;
+}
+
+.cws_productlabel_selectbox .position_selector {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    float:left;
+    height:21px;
+    margin-left:1px;
+    margin-top:1px;
+    width:23px;
+}
+
+.cws_productlabel_selectbox div.active {
+    background-color: #EA7601 !important;
+}
+
+.cws_productlabel_selectbox div.over {
+    background-color: #ccc;
+}
+
+#cat_image_image{
+width:50px;
+height:50px;
+}
+#prod_image_image{
+width:50px;
+height:50px;
+}
+
+.product-param label { padding-right: 10px; }
+.product-param .label { color: black; font-weight: bold; }
+.product-param .label:hover { color: blue; font-weight: bold; }
+.product-param .element { display: none; }
+.product-param input, .product-param select { min-width: 350px; width: auto !important; }
+.product-param-edit .label { display: none; }
+.product-param-edit .element { display: inline; }
+.product-chooser { border: 1px solid #CCC; display: none; margin: 10px 0; padding: 5px; }
