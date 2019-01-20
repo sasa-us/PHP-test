@@ -36,6 +36,8 @@
     $_product = $this->getProduct();
     $_helper = $this->helper('catalog/output');
 ?>
+<div class="productlabel-div">
+<?php echo Mage::helper('productlabel')->getLabel($_product, 'product'); ?>
 <div class="product-image product-image-zoom">
     <div class="product-image-gallery">
         <img id="image-main"
@@ -53,6 +55,7 @@
             <?php endif; ?>
         <?php $i++; endforeach; ?>
     </div>
+</div>
 </div>
 
 <?php if (count($this->getGalleryImages()) > 0): ?>
